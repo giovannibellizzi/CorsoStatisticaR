@@ -65,6 +65,8 @@ Non si può: il comando _Create pull request_ dalla branch nella **propria fork*
 Insieme al materiale delle lezioni verrà fornito anche il materiale di approfondimanto, la community di R è estremamente vivace, e il miglior modo di entrare nel vivo della materia è quello di seguirne gli attori principali. Seguire i collegamenti nel materiale allegato dovrebbe portare a quasi tutte le persone giuste.
 
 #### Ho trovato questo tutorial in pdf, Robinson icebreakerR (https://cran.r-project.org/doc/contrib/Robinson-icebreaker.pdf), secondo te va bene?
+
+#### mi può mandare il modellino per la delibera dei crediti?
 ---
 
 <div align="center">
