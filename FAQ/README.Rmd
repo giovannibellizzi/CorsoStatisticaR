@@ -58,6 +58,8 @@ La raccomandazione è cercare in inglese.
 
 Non si può: il comando _Create pull request_ dalla branch nella **propria fork**, reindirizza alla pagina giusta sul browser.
 
+### Come si caricano dei dati su Rstudio
+
 ## Altre domande:
 
 #### Finito il corso, possiamo trovare sul web qualche valido tutorial per migliorare le proprie capacità nell'uso di R? Ne consigliereste qualcuno in particolare?
