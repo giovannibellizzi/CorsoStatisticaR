@@ -64,6 +64,8 @@ Non si può: il comando *Create pull request* dalla branch nella **propria fork*
 
 No, uno degli scopi di GitHub è quello di permettere una collaborazione diffusa, se si prevede l'accesso di numerosi utenti è buona regola stabilire delle norme di comportamento, come indicato nelle guide di GitHub stesso.
 
+#### Il tutorial va scritto su Rstudio e poi caricato in una repo su github o si puo scrivere direttamente su github?
+
 Altre domande:
 --------------
 
