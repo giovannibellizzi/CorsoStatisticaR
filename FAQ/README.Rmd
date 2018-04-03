@@ -42,7 +42,7 @@ Non ho consigli specifici, se qualcuno ne ha è il benvenuto, ma penso che prova
 Il punto di chiedervelo prima di spiegarvelo è di imparare a cercare le risposte sul web.  
 La raccomandazione è cercare in inglese.
 
-#### E' possibile lavorare offline su Github desktop?
+#### E' possibile lavorare offline su GitHub desktop?
 ---
 
 <div align="center">
