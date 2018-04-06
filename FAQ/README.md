@@ -60,8 +60,18 @@ La raccomandazione è cercare in inglese.
 
 Non si può: il comando *Create pull request* dalla branch nella **propria fork**, reindirizza alla pagina giusta sul browser.
 
+#### Esiste un numero massimo di account che possono contribuire alla realizzazione dello stesso progetto? 
+
+No, uno degli scopi di GitHub è quello di permettere una collaborazione diffusa, se si prevede l'accesso di numerosi utenti è buona regola stabilire delle norme di comportamento, come indicato nelle guide di GitHub stesso.
+
+#### Il tutorial va scritto su Rstudio e poi caricato in una repo su github o si puo scrivere direttamente su github?
+
 Altre domande:
 --------------
+
+#### Esiste una guida consigliata per imparare ad usare R? 
+
+Esistono numerosi manuali, i più utili verranno messi a disposizione sul sito del corso. RStudio in generale pubblica le cose migliori.
 
 #### Finito il corso, possiamo trovare sul web qualche valido tutorial per migliorare le proprie capacità nell'uso di R? Ne consigliereste qualcuno in particolare?
 
@@ -70,5 +80,9 @@ Insieme al materiale delle lezioni verrà fornito anche il materiale di approfon
 ------------------------------------------------------------------------
 
 [Syllabus](../README.md)
+come si caricano file?
 
 ------------------------------------------------------------------------
+#### Per l'esame di stato è richiesta la conoscenza di R?
+
+#### Come faccio a mostrare i risultati nel mio [tutorial](https://github.com/saveriofrancini/My_first_function)? Quando faccio *Knit to hhml/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro? 
