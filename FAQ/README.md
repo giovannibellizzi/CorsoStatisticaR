@@ -84,3 +84,5 @@ come si caricano file?
 
 ------------------------------------------------------------------------
 #### Per l'esame di stato è richiesta la conoscenza di R?
+
+#### Come faccio a mostrare i risultati nel mio [tutorial](https://github.com/saveriofrancini/My_first_function)? Quando faccio *Knit to hhml/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro? 
