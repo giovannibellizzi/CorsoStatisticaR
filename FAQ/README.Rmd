@@ -47,7 +47,15 @@ Non ho consigli specifici, se qualcuno ne ha è il benvenuto, ma penso che prova
 Il punto di chiedervelo prima di spiegarvelo è di imparare a cercare le risposte sul web.  
 La raccomandazione è cercare in inglese.
 
+#### E' possibile lavorare offline su GitHub desktop?
+
+Si, di fatto è uno dei principali vantaggi. Chiaramente non può sincronizzarsi con la repository on-line.
+Qui di si possono fare le **commit** regolari, che verranno in seguito sincronizzate (salvando tutto lo storico del progetto).
+
 #### Dove posso trovare i tutorial per l'utilizzo di GitHub? (_GitHub for dummies_)
+
+Io partirei proprio dalle [guide di GitHub](https://guides.github.com/activities/hello-world/).
+Speriamo che qualcosa di ancora più amichevole siate in grado di produrlo voi.
 
 #### Che differenza c'è tra Branch e Fork?
 
@@ -62,13 +70,22 @@ Non si può: il comando _Create pull request_ dalla branch nella **propria fork*
 
 ## Altre domande:
 
+#### È disponibile una guida online a cui fare riferimento per il linguaggio R?
+
+Si, fra le ufficiali la base di riferimento è [RStudio.com](https://www.rstudio.com/online-learning/)
+
 #### Finito il corso, possiamo trovare sul web qualche valido tutorial per migliorare le proprie capacità nell'uso di R? Ne consigliereste qualcuno in particolare?
 
 Insieme al materiale delle lezioni verrà fornito anche il materiale di approfondimanto, la community di R è estremamente vivace, e il miglior modo di entrare nel vivo della materia è quello di seguirne gli attori principali. Seguire i collegamenti nel materiale allegato dovrebbe portare a quasi tutte le persone giuste.
 
-#### Ho trovato questo tutorial in pdf, Robinson icebreakerR (https://cran.r-project.org/doc/contrib/Robinson-icebreaker.pdf), secondo te va bene?
+#### Ho trovato questo tutorial in pdf, [Robinson icebreakerR](https://cran.r-project.org/doc/contrib/Robinson-icebreaker.pdf), secondo te va bene?
+
+Direi di si, prende le cose parecchio di petto, quindi può volerci un po' di pazienza, magari è un po' complesso per chi parte proprio da zero.
 
 #### mi può mandare il modellino per la delibera dei crediti?
+
+Questa si che è una domanda complessa... sentirò in segreteria!!!
+
 ---
 
 <div align="center">
