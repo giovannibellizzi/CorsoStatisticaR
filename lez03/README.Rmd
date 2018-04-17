@@ -247,7 +247,7 @@ $$r^2 + s^2 = \frac{G}{\pi}$$
 $$m^2 + m^2 = \frac{G}{\pi}$$
 $$2m^2 = \frac{G}{\pi}$$
 $$2m^2 = r^2 + s^2 $$
-$$m = \frac{\sqrt{r^2 + s^2}}{2}$$
+$$m = \sqrt{\frac{r^2 + s^2}{2}}$$
 **MEDIA QUADRATICA**
 
 
@@ -413,4 +413,4 @@ ggplot() +
     theme_bw()
 ```
 
-# Per ora pausa
+
