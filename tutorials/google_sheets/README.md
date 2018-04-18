@@ -195,6 +195,6 @@ nome_dataframe <- gs_read(gs_title("nome_del_file"), ws = "nome_del_foglio")
 
 ------------------------------------------------------------------------
 
-[Torna al Syllabus](../README.md)
+[Torna al Syllabus](../../README.md)
 
 ------------------------------------------------------------------------

@@ -98,6 +98,6 @@ nome_dataframe <- gs_read(gs_title("nome_del_file"), ws = "nome_del_foglio")
 ---
 
 <div align="center">
-[Torna al Syllabus](../README.md)
+[Torna al Syllabus](../../README.md)
 </div>
 ---
