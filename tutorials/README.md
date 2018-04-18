@@ -17,6 +17,45 @@ Un'introduzione al formato Markdown, e alle opzioni che si possono inserire nell
 
 Costruzione di un modello di idoneita territoriale di una specie vegetale forestale.
 
+### Dal FORK alla PULL-REQUEST
+
+Work in progress
+
+### Installazione su Windows
+
+Work in progress
+
+### Installazione su MAC
+
+Work in progress
+
+### Installazione su Linux
+
+Work in progress
+
+### I tipi di variabili (esclusi i `factor`)
+
+Work in progress
+
+### I `factor`
+
+Work in progress
+
+### Lavorare con le stringhe
+
+Work in progress
+
+### La vettorizzazione
+
+Work in progress
+
+Tutorial ancora da fare:
+========================
+
+### Controllare le dimensioni delle immagini nei Markdown
+
+C'è un [bel tutorial in inglese](https://www.zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/), ma è un po' troppo approfondito
+
 ------------------------------------------------------------------------
 
 [Torna al Syllabus](../README.md)
