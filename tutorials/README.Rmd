@@ -1,0 +1,37 @@
+---
+title: "TUTORALS - Laboratorio di statistica"
+output: 
+        github_document:
+                toc: FALSE
+                # toc_depth: 3 # default = 3
+                # fig_width: 7 # default = 7
+                # fig_height: 5 # default = 5
+---
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+```
+
+### [TutorialNumeri](https://github.com/lucamoca22/TutorialNumeri)
+
+Questo tutorial si pone come obiettivo quello di spiegare come utilizzare i numeri nell'ambiente R partendo da esempi estremamente semplici.
+
+### [My first function](https://github.com/saveriofrancini/My_first_function)
+
+Un tutorial per iniziare a scrivere funzioni, e sfruttare davvero il linguaggio (da tradurre in italiano).
+
+### [Markdown - Basics - Opzioni dell'intestazione](https://github.com/CBUFLM/RCourse_assignments)
+
+Un'introduzione al formato Markdown, e alle opzioni che si possono inserire nell'intestazione.
+
+### [GIS - modello idoneità territoriale](https://github.com/GregorioFantoni/tutorial-modello-idoneita-territoriale)
+
+Costruzione di un modello di idoneita territoriale di una specie vegetale forestale.
+
+---
+
+<div align="center">
+[Torna al Syllabus](../README.md)
+</div>
+---
+

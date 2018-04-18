@@ -5,8 +5,9 @@ Laboratorio di Statistica Forestale
 -   [Obbiettivi del corso:](#obbiettivi-del-corso)
 -   [Prerequisiti del corso:](#prerequisiti-del-corso)
     -   [Installazioni e account (in quest'ordine):](#installazioni-e-account-in-questordine)
--   [[Presenze 2018](https://docs.google.com/spreadsheets/d/19U_JozMlFgE4YfD2kzcpR5lROR4U_wjfKJ3RsSGnqzk/edit?usp=sharing)](#presenze-2018)
--   [[FAQ](FAQ/)](#faq)
+-   [Presenze 2018](#presenze-2018)
+-   [FAQ](#faq)
+-   [TUTORIALS](#tutorials)
 -   [Lezioni](#lezioni)
 
 ------------------------------------------------------------------------
@@ -64,16 +65,21 @@ Non è *indispensabile* avere tutto installato per la prima lezione ma lo sarà 
 -   [GitHub](http://github.com/): **N.B.** c'è un sistema di account per gli studenti che toglie alcune limitazioni degli account 'free' [a questo link](https://education.github.com/pack)
 -   [GitHub Desktop](https://desktop.github.com/): un software per gestire i propri progetti Git senza passare dal browser (permette di gestire anche i progetti in locale che non sono su GitHub)
 
-[Presenze 2018](https://docs.google.com/spreadsheets/d/19U_JozMlFgE4YfD2kzcpR5lROR4U_wjfKJ3RsSGnqzk/edit?usp=sharing)
----------------------------------------------------------------------------------------------------------------------
+Presenze 2018
+-------------
 
 A [questo link](https://docs.google.com/spreadsheets/d/19U_JozMlFgE4YfD2kzcpR5lROR4U_wjfKJ3RsSGnqzk/edit?usp=sharing) è possibilie controllare il registro delle presenze. Chi è segnato senza l'anno di corso è pregato di mandarmelo per e-mail, in modo da poter aggiungere anche il suo indirizzo alla mailing-list.
 
-[FAQ](FAQ/)
------------
+FAQ
+---
 
 In [questa pagina](FAQ/) un mezzo rapido e pratico di porre le domande sul corso che potrebbero interessare anche gli altri.
 Il metodo più rapido per inserire una domanda ed ottenere una risposta è una *Pull Request* di una modifica alla pagina!
+
+TUTORIALS
+---------
+
+In [questa pagina](tutorials/) una collezione di tutorial in italiano creati dagli studenti per gli studenti. Con il tempo i tutorials verranno tradotti in inglese, come strumento di passaggio allo standard internazionale.
 
 Lezioni
 -------
@@ -103,21 +109,26 @@ Lezioni
 <td><a href="lez02/">lez02: R, gli oggetti ed i tipi di variabili</a></td>
 </tr>
 <tr class="odd">
-<td></td>
-<td></td>
-<td></td>
+<td>2018-04-17</td>
+<td>J</td>
+<td><a href="lez03/">lez03: Statistica descrittiva</a></td>
 </tr>
 <tr class="even">
-<td>alla fine</td>
-<td>casa</td>
-<td><a href="lez97/">lez97: Le cose e i loro nomi</a></td>
+<td></td>
+<td></td>
+<td></td>
 </tr>
 <tr class="odd">
 <td>alla fine</td>
 <td>casa</td>
-<td><a href="lez98/">lez98: Le domande da fare ai tuoi dati</a></td>
+<td><a href="lez97/">lez97: Le cose e i loro nomi</a></td>
 </tr>
 <tr class="even">
+<td>alla fine</td>
+<td>casa</td>
+<td><a href="lez98/">lez98: Le domande da fare ai tuoi dati</a></td>
+</tr>
+<tr class="odd">
 <td>alla fine</td>
 <td>casa</td>
 <td><a href="lez99/">lez99: I passi da fare, per filo e per segno</a></td>
