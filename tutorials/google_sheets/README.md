@@ -189,7 +189,7 @@ nome_dataframe <- gs_read(gs_title("nome_del_file"), ws = "nome_del_foglio")
 
 ------------------------------------------------------------------------
 
-[Pagina dei TUTORIALS](./tutorials/)
+[Pagina dei TUTORIALS](../../tutorials/)
 
 ------------------------------------------------------------------------
 
