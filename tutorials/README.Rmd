@@ -28,37 +28,30 @@ Un'introduzione al formato Markdown, e alle opzioni che si possono inserire nell
 
 Costruzione di un modello di idoneita territoriale di una specie vegetale forestale.
 
-### Dal FORK alla PULL-REQUEST
 
-Work in progress
+# Caricamento dei dati
+
+### [Leggere i dati da... Google Sheets](google_sheets/)
+
+Come collegare R al nostro account Google e leggere i dati direttamente da Google Sheets.
+
+# Work in progress
+
+### Dal FORK alla PULL-REQUEST
 
 ### Installazione su Windows
 
-Work in progress
-
 ### Installazione su MAC
-
-Work in progress
 
 ### Installazione su Linux
 
-Work in progress
-
 ### I tipi di variabili (esclusi i `factor`)
-
-Work in progress
 
 ### I `factor`
 
-Work in progress
-
 ### Lavorare con le stringhe
 
-Work in progress
-
 ### La vettorizzazione
-
-Work in progress
 
 # Tutorial ancora da fare:
 
