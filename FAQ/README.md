@@ -16,7 +16,7 @@ FAQ Laboratorio di statistica
     -   [Che differenza c'è tra Branch e Fork?](#che-differenza-cè-tra-branch-e-fork)
     -   [Come si crea una pull request da GitHub Dekstop](#come-si-crea-una-pull-request-da-github-dekstop)
     -   [Come si caricano i dati su Rstudio](#come-si-caricano-i-dati-su-rstudio)
-    -   [Come faccio a mostrare i risultati nel mio [tutorial](https://github.com/saveriofrancini/My_first_function)? Quando faccio *Knit to html/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro?](#come-faccio-a-mostrare-i-risultati-nel-mio-tutorial-quando-faccio-knit-to-htmlwordpdf-su-r-va-tutto-bene-ma-qui-su-github-si-vedono-soltanto-le-linee-di-comando.-e-poi-qualè-la-differenza-tra-il-formato-md-e-rmd-per-cosa-si-deve-usare-uno-e-per-cosa-laltro)
+    -   [Come faccio a mostrare i risultati nel mio tutorial? Quando faccio *Knit to html/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro?](#come-faccio-a-mostrare-i-risultati-nel-mio-tutorial-quando-faccio-knit-to-htmlwordpdf-su-r-va-tutto-bene-ma-qui-su-github-si-vedono-soltanto-le-linee-di-comando.-e-poi-qualè-la-differenza-tra-il-formato-md-e-rmd-per-cosa-si-deve-usare-uno-e-per-cosa-laltro)
 -   [Altre domande:](#altre-domande)
     -   [Per l'esame di stato da Agronomo Forestale è necessaria la conoscenza di R?](#per-lesame-di-stato-da-agronomo-forestale-è-necessaria-la-conoscenza-di-r)
     -   [I compiti vanno scritti su Rstudio e poi caricati in una repo su GitHub o si puo scrivere direttamente su GitHub?](#i-compiti-vanno-scritti-su-rstudio-e-poi-caricati-in-una-repo-su-github-o-si-puo-scrivere-direttamente-su-github)
@@ -87,7 +87,9 @@ Non si può: il comando *Create pull request* dalla branch nella **propria fork*
 
 Per caricare i dati su RStudio occorre averli già su un file, che sia un documento on-line, un file di testo o un foglio Excel, vedremo di fare un tutorial apposito su questo argomento.
 
-#### Come faccio a mostrare i risultati nel mio [tutorial](https://github.com/saveriofrancini/My_first_function)? Quando faccio *Knit to html/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro?
+#### Come faccio a mostrare i risultati nel mio tutorial? Quando faccio *Knit to html/word/pdf* su R va tutto bene ma qui su github si vedono soltanto le linee di comando. E poi, qual'è la differenza tra il formato *md* e *rmd*? Per cosa si deve usare uno e per cosa l'altro?
+
+[Link al tutorial](https://github.com/saveriofrancini/My_first_function)
 
 Noi prenderemo l'abitudine di scrivere tutto in **.rmd**, le differenze sono fondamentalmente nella possibilità di eseguire i comandi che si scrivono e generare i risultati e i grafici, senza doverli incollare come riferimenti esterni. Se controllate l'intestazione di questo file noterete che l'output non è un html, perché le mie intenzioni sono di tenerlo su GitHub, che ha un bel modo di visualizzare i file **.md**, quindi io scrivo il file su RStudio come **.rmd**, il pulsante con la palla di filo blu in alto a sinistra usa automaticamente l'opzione di default che ho messo nell'intestazione del file (*github\_document:*). Il fatto che il file si chiami **README.rmd**, e quindi generi un **README.md**, lo fa aprire direttamente sulla pagina di GitHub. Per questo è bene che non si lavori mai sul file **.md** se c'è un **.rmd** che lo genera, perché quando verrà generato di nuovo tutte le modifiche andranno perse.
 
