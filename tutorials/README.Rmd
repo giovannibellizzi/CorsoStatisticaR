@@ -35,6 +35,10 @@ Costruzione di un modello di idoneita territoriale di una specie vegetale forest
 
 Come collegare R al nostro account Google e leggere i dati direttamente da Google Sheets.
 
+# Soluzioni per `dataframe` indisciplinati
+
+### [Convertire le colonne in `numeric`](colonne_numeriche/)
+
 # Work in progress
 
 ### Dal FORK alla PULL-REQUEST

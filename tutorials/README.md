@@ -24,6 +24,11 @@ Caricamento dei dati
 
 Come collegare R al nostro account Google e leggere i dati direttamente da Google Sheets.
 
+Soluzioni per `dataframe` indisciplinati
+========================================
+
+### [Convertire le colonne in `numeric`](colonne_numeriche/)
+
 Work in progress
 ================
 
