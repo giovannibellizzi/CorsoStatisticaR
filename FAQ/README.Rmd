@@ -67,6 +67,7 @@ Insieme al materiale delle lezioni verrà fornito anche il materiale di approfon
 #### Ho trovato questo tutorial in pdf, Robinson icebreakerR (https://cran.r-project.org/doc/contrib/Robinson-icebreaker.pdf), secondo te va bene?
 
 #### mi può mandare il modellino per la delibera dei crediti?
+#### qual'è il titolo del corso?
 ---
 
 <div align="center">
