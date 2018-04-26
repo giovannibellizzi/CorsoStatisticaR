@@ -30,12 +30,17 @@ Costruzione di un modello di idoneita territoriale di una specie vegetale forest
 
 ### [Dalla-Fork-alla-Pull-Request](https://github.com/eliavangi/Dalla-Fork-alla-Pull-Request)
 
+Piccolo tutorial per creare una fork e una pull request
 
 # Caricamento dei dati
 
 ### [Leggere i dati da... Google Sheets](google_sheets/)
 
 Come collegare R al nostro account Google e leggere i dati direttamente da Google Sheets.
+
+# Soluzioni per `dataframe` indisciplinati
+
+### [Convertire le colonne in `numeric`](colonne_numeriche/)
 
 # Work in progress
 
@@ -53,12 +58,13 @@ Come collegare R al nostro account Google e leggere i dati direttamente da Googl
 
 ### La vettorizzazione
 
-# Tutorial ancora da fare:
-
 ### Controllare le dimensioni delle immagini nei Markdown 
 
 C'è un [bel tutorial in inglese](https://www.zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/), ma è un po' troppo approfondito
 
+# Tutorial ancora da fare:
+
+### Piping (operatore `%>%` del package `purrr`)
 
 ---
 

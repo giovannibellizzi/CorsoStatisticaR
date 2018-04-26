@@ -24,6 +24,11 @@ Caricamento dei dati
 
 Come collegare R al nostro account Google e leggere i dati direttamente da Google Sheets.
 
+Soluzioni per `dataframe` indisciplinati
+========================================
+
+### [Convertire le colonne in `numeric`](colonne_numeriche/)
+
 Work in progress
 ================
 
@@ -43,12 +48,14 @@ Work in progress
 
 ### La vettorizzazione
 
-Tutorial ancora da fare:
-========================
-
 ### Controllare le dimensioni delle immagini nei Markdown
 
 C'è un [bel tutorial in inglese](https://www.zevross.com/blog/2017/06/19/tips-and-tricks-for-working-with-images-and-figures-in-r-markdown-documents/), ma è un po' troppo approfondito
+
+Tutorial ancora da fare:
+========================
+
+### Piping (operatore `%>%` del package `purrr`)
 
 ------------------------------------------------------------------------
 
