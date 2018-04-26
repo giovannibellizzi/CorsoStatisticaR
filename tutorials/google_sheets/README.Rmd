@@ -1,0 +1,103 @@
+---
+title: "Leggere i dati da... Google Sheets"
+output: 
+        github_document:
+                toc: FALSE
+                # toc_depth: 3 # default = 3
+                # fig_width: 7 # default = 7
+                # fig_height: 5 # default = 5
+---
+
+```{r setup, include=FALSE}
+# knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Caricamento delle librerie
+
+
+Se non avete mai scaricato la libreria prima dovete installarla con il comando `install.packages("googlesheets")`, per buona prassi questo comando viene sempre eseguito dalla console, è **maleducazione** scrivere un file che mette le mani sui computer degli altri senza chiedere.
+
+Dopodiché la libreria deve essere caricata:
+
+```{r}
+library(googlesheets)
+```
+
+Un buon inizio per esplorare questo package è la sua [_vignette_](https://cran.r-project.org/web/packages/googlesheets/vignettes/basic-usage.html).
+
+## Vediamo un po' che combina
+
+La funzione che si connette al mio account drive e mi dice quali files sono disponibili è:
+
+```{r}
+(my_sheets <- gs_ls()) # Questa funzione ha le parentesi intorno... senza non funziona...
+```
+
+L'oggetto che mi genera è una lista piuttosto incasinata, i titoli si leggono male, proviamo a stampare solo la colonna dei titoli:
+
+```{r}
+my_sheets$sheet_title # andava bene anche "gs_ls()$sheet_title"
+```
+
+Il file che sto cercando è il secondo:
+
+```{r}
+file_google_sheets <- gs_title("030_dati_studenti_eta_caramelle")
+```
+
+Se il file che volete non è dei vostri allora:
+
+* o avete la _chiave_ e utilizzate la funzione `gs_key()`
+* o avete lo _sharing link_ e utilizzate la funzione `gs_url()`
+
+La lista dei fogli in quel file:
+
+```{r}
+gs_ws_ls(file_google_sheets) ### gs = GoogleSheets, ws = WorkSheet, ls = LiSt
+```
+
+Salvo il `data frame` con il contenuto del foglio
+
+```{r}
+dati_caramelle <- gs_read(file_google_sheets, ws = "Foglio1")
+```
+
+controlliamo cosa c'è:
+
+```{r}
+dati_caramelle
+```
+
+```{r}
+knitr::kable(dati_caramelle)
+```
+
+### Per concludere
+
+Passo 1: si stabilisce la connessione con l'account:
+
+```{r, eval=FALSE}
+(my_sheets <- gs_ls())
+```
+
+Passo 2: si salvano in un `dataframe` i dati del foglio giusto del file giusto:
+
+```{r, eval=FALSE}
+nome_dataframe <- gs_read(gs_title("nome_del_file"), ws = "nome_del_foglio")
+```
+
+
+---
+
+<div align="center">
+[Pagina dei TUTORIALS](../../tutorials/)
+</div>
+
+---
+
+---
+
+<div align="center">
+[Torna al Syllabus](../../README.md)
+</div>
+---

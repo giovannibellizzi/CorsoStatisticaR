@@ -123,10 +123,9 @@ for (i in d) print(paste0("Class of ", i, " :", class(i)))
 
 #### !!!I `factor`, amore e odio, ma soprattutto odio!!!
 
-Un tipo particolare di vettore è `factor`, questo vettore riunisce variabili
+Un tipo particolare di vettore è `factor`, questo vettore riunisce variabili categoriche ordinate e non. I valori al suo interno sono tutti considerati come `character`.
 
-
-Le liste risolvono esattamente questo tipo di problema:
+Spesso però abbiamo bisogno di tenere riuniti dati di tipo completamente diverso: le liste risolvono esattamente questo tipo di problema:
 
 ```{r}
 e <- list(pinco = 34, pallino = "test", foo = T, bar = 5L)

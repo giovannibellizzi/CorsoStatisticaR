@@ -1,0 +1,343 @@
+---
+title: "lez04: Regressioni lineari"
+output: 
+        ioslides_presentation: 
+                widescreen: TRUE
+                df_print: paged
+        github_document:
+                toc: TRUE
+                # toc_depth: 3 # default = 3
+                # fig_width: 7 # default = 7
+                # fig_height: 5 # default = 5
+        slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE,
+                      message = FALSE,
+                      warning = FALSE)
+```
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+
+## Riprendiamo il database "iris"
+
+```{r}
+iris
+```
+
+## `summary()`
+
+```{r}
+summary(iris)
+```
+
+## La deviazione standard
+
+Oltre la media, abbiamo bisogno di una misura di quanto i dati sono dispersi
+
+```{r, echo=FALSE}
+ggplot(data = data_frame(x = c(-4,4)), aes(x = x)) +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 1), color = "green") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 0.5), color = "blue") +
+    stat_function(fun = dnorm, args = list(mean = 0, sd = 2), color = "red") +
+    theme_bw()
+```
+
+## Gli indici di dispersione
+
+Se $\overline x$ è la **media aritmetica** del mio _campione_:
+
+la **varianza _campionaria_** sarà:
+
+$$
+\sigma^2 = {\frac{\sum(x-\overline x)^2}{N-1}}
+$$
+
+
+e la **deviazione standard _campionaria_** o  scarto quadratico medio _campionario_
+
+$$
+\sigma = \sqrt{\frac{\sum(x-\overline x)^2}{N-1}}
+$$
+
+## I nostri dati:
+
+```{r}
+iris$Petal.Length
+```
+
+## Le medie
+
+```{r, fig.height=4}
+ggplot() +
+    geom_density(data = iris, aes(x = Petal.Length, fill = Species), 
+                 binwidth = 0.1, color = "black", alpha = 2/3) +
+    theme_bw()
+```
+
+## Calcolare la media per gruppi:
+
+La funzione per il calcolo della media è `mean()`
+```{r}
+mean(iris$Sepal.Length)
+```
+
+Se il nostro `dataframe` ha una colonna factor, possiamo raggupparlo con:
+```{r}
+iris %>%
+    group_by(Species) %>%
+    summarise(mean_values = mean(Petal.Length))
+```
+
+## Calcolare la deviazione standard
+
+In inglese è **standard deviation**, per cui la funzione è `sd()`
+
+```{r}
+sd(iris$Petal.Length)
+```
+
+Come tutte le funzioni può essere applicata a gruppi:
+
+```{r}
+iris %>%
+    group_by(Species) %>%
+    summarise(mean_values = mean(Petal.Length), standard_deviations = sd(Petal.Length))
+```
+
+---
+
+Lo salviamo in un dataframe
+
+```{r}
+iris %>%
+    group_by(Species) %>%
+    summarise(mean_values = mean(Petal.Length), 
+              standard_deviations = sd(Petal.Length)) -> iris_stat
+```
+
+---
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, aes(x = Petal.Length, fill = Species), 
+                 binwidth = 0.1, color = "black", alpha = 2/3) +
+    geom_vline(data = iris_stat, 
+               aes(xintercept = mean_values, color = Species), size = 1.5) +
+    geom_vline(data = iris_stat, 
+               aes(xintercept = mean_values + standard_deviations, color = Species), size = 0.7) +
+    geom_vline(data = iris_stat, 
+               aes(xintercept = mean_values - standard_deviations, color = Species), size = 0.7) +
+    theme_bw()
+```
+
+## Una parentesi sull'operatore `%>%` (piping)
+
+* Analogo del `+` di `ggplot2`
+* Esegue le funzioni in un ordine più leggibile
+* Formalmente passa il risultato come primo argomento della funzione
+
+```{r, eval=FALSE}
+a %>% fun1() %>% fun2(arg2, arg3)
+```
+
+corrisponde a:
+
+```{r, eval=FALSE}
+fun2(fun1(a), arg2, arg3)
+```
+
+## La meccanica interna
+
+```{r, eval=FALSE}
+a %>% fun1() %>% fun2(arg2, arg3)
+```
+
+si appoggia ad una variabile transitoria
+
+```{r, eval=FALSE}
+k <- fun1(a)
+k <- fun2(k, arg2, arg3)
+k
+```
+
+spesso (e soprattutto in questo caso) per le variabili transitorie si usa il punto
+
+```{r, eval=FALSE}
+. <- fun1(a)
+. <- fun2(. , arg2, arg3)
+.
+```
+
+per un approfondimento (e un possibile argomento per un tutorial)
+
+```{r, eval=FALSE}
+help("%>%")
+```
+
+
+# La correlazione
+
+## Un'occhiata ai dati
+
+```{r, eval=TRUE}
+library(GGally)
+ggpairs(iris, binwidth = 0.1) + theme_bw()
+```
+
+## Un'occhiata ai dati
+
+```{r, eval=TRUE}
+ggpairs(iris, columns = c("Petal.Length", "Petal.Width", "Species"),
+        mapping = aes(alpha = 0.20)) + theme_bw()
+```
+
+## Un po' di colore
+
+```{r, eval=TRUE}
+ggpairs(iris,
+        mapping = aes(alpha = 0.20, color = Species)) + theme_bw()
+```
+
+## In dettaglio
+
+```{r, eval=TRUE}
+ggpairs(iris, columns = c("Petal.Length", "Petal.Width", "Species"),
+        mapping = aes(alpha = 0.20, color = Species)) + theme_bw()
+```
+
+## Correlazione
+
+```{r}
+library(corrplot)
+cor_data <- cor(dplyr::select_if(iris, is.numeric))
+corrplot.mixed(cor_data)
+```
+
+```{r}
+corrplot.mixed(cor_data, lower = "number", upper = "square", lower.col = "black")
+```
+
+# Un coefficiente di correlazione 0 non indica variabili indipendenti
+
+---
+
+Esempi di valori di correlazione
+
+![](Correlation_examples.png)
+
+## Il DATASAURO
+
+![](DataSaurus.gif)
+
+```{r, include=FALSE}
+# https://it.wikipedia.org/wiki/File:Correlation_examples.png
+```
+
+
+# Regressioni lineari
+
+## La regressione lineare
+
+Iniziamo da una variabile sola
+
+creiamo una variabile da una distribuzione normale di media 5, la funzione che estrae i valori da una distribuzione **uniforme** era `runif()`, quella per la distribuzione **normale** è `rnorm()`.
+
+Non scordiamoci il `set.seed()`
+
+```{r, fig.height=3.5}
+set.seed(42)
+data <- data_frame(x = 1:10, y = rnorm(10, mean = 5))
+```
+
+---
+
+```{r}
+data
+```
+
+
+
+---
+
+```{r}
+
+ggplot() +
+    geom_point(data = data, aes(x = x, y = y), color = "purple", size = 3) +
+    theme_bw()
+
+```
+
+---
+
+```{r, echo=FALSE}
+
+ggplot() +
+    geom_segment(data = data, aes(x = x, xend = x, y = y, yend = mean(data$y)), color = "red") +
+    geom_hline(yintercept = mean(data$y), color = "gold", size = 1.5) +
+    geom_point(data = data, aes(x = x, y = y), color = "purple", size = 3) +
+    theme_bw()
+
+```
+
+## Il modello lineare minimo
+
+```{r}
+mean(data$y)
+lm(y ~ 1, data = data)
+```
+
+---
+
+```{r}
+ggplot(lm(y ~ 1, data = data)) +
+    geom_point(aes(x = data$x, y = .resid), size = 3, color = "purple") +
+    theme_bw()
+```
+
+
+
+## Anscombe's quartet
+
+```{r}
+summary(anscombe)
+```
+
+---
+
+```{r}
+corrplot.mixed(cor(anscombe))
+```
+
+---
+
+```{r, echo=FALSE, fig.height=6, fig.width=10}
+anscombe.1 <- data.frame(x = anscombe[["x1"]], y = anscombe[["y1"]], Set = "Anscombe Set 1")
+anscombe.2 <- data.frame(x = anscombe[["x2"]], y = anscombe[["y2"]], Set = "Anscombe Set 2")
+anscombe.3 <- data.frame(x = anscombe[["x3"]], y = anscombe[["y3"]], Set = "Anscombe Set 3")
+anscombe.4 <- data.frame(x = anscombe[["x4"]], y = anscombe[["y4"]], Set = "Anscombe Set 4")
+
+anscombe.data <- rbind(anscombe.1, anscombe.2, anscombe.3, anscombe.4)
+
+gg <- ggplot(anscombe.data, aes(x = x, y = y))
+gg <- gg + geom_smooth(lty = "dotted",
+                       size = 1,
+                       color = "#ff908d",
+                       formula = y ~ x, 
+                       method = "lm", 
+                       se = FALSE)
+gg <- gg + geom_point(color = "black", 
+                      size = 3,
+                      shape = 21,
+                      fill="grey")
+gg <- gg + facet_wrap(~Set, ncol = 2) + theme_bw()
+gg
+
+### thanks to github.com/fabianmoronzirfas/anscombe-quartet-in-cran
+```
+
+

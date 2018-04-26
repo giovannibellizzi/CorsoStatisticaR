@@ -94,8 +94,6 @@ Il 90% della statistica nelle applicazioni forestali è statistica descrittiva, 
 ##Statistica inferenziale
 La statistica inferenziale si occupa di identificare i legami di causa-effetto all'interno dei dati reccolti. Questo tipo di analisi raramente possono essere svolte al di fuori di disegni sperimentali di laboratorio.
 
-##Statistica predittiva
-
 ##Hypotesis Testing
 Il cuore della statistica scientifica è la capacità di testare un'ipotesi sui dati, nella quasi totalità dei casi si tratta di verificare statisticamente che la struttura dei dati non sia casuale.
 Il punto chiave da ricordare è che se si vuole davvero testare un'ipotesi non si può fare **nessun'altro tipo di statistica sui dati**, almeno *non prima dei test*.

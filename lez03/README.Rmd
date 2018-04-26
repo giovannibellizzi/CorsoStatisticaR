@@ -1,0 +1,416 @@
+---
+title: "lez03a: Statistica descrittiva"
+output: 
+        ioslides_presentation: 
+                widescreen: true
+                df_print: paged
+        github_document:
+                toc: TRUE
+                # toc_depth: 3 # default = 3
+                # fig_width: 7 # default = 7
+                # fig_height: 5 # default = 5
+        slidy_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(cache = TRUE)
+```
+
+```{r, include=FALSE}
+library(tidyverse)
+```
+
+
+## Il database "iris"
+
+Uno dei dataset più utilizzati per la statistica è senza dubbio `iris`: la collezione di 150 misure di larghezza e lunghezza di petali e sepali di iris appartenenti a tre diverse specie:
+
+```{r}
+iris
+```
+
+---
+
+la lunghezza dei petali può essere utilizzata come esempio di una tipica variabile continua misurata in campo:  
+
+è abbastanza chiaro che guardare i dati grezzi non ci porta da nessuna parte...
+
+```{r}
+iris$Petal.Length
+```
+
+## `summary()`
+
+_da non confondere con la funzione `summarise()` che vedremo tra poco_
+
+```{r}
+summary(iris$Petal.Length)
+```
+
+> - `Min.`: il valore minimo
+> - `1st Qu`.: il primo **quartile** ossia il valore entro cui stanno il 25% dei dati
+> - `Median`: la mediana, _che è anche il secondo quartile_
+> - `Mean`: la **media aritmetica** dei valori **(non finisce qui)**
+> - `3rd Qu.`: il terzo **quartile**
+> - `Max.`: il valore massimo
+
+---
+
+è uno strumento eccezionale per verificare che non ci siano errori nell'acquisizione dei dati:
+
+```{r}
+summary(iris)
+```
+
+---
+
+da notare che fornisce automaticamente anche le abbondanze dei dati che vengono immagazzinati come `factor`, quindi **variabili qualitative** in questo caso _non ordinate_
+
+```{r}
+summary(iris$Species)
+```
+
+## Un grafico
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, 
+                   aes(x = Petal.Length))
+```
+
+---
+
+`?geom_histogram` ci fornisce qualche indicazione in più, anche se non è chiarissimo nella differenza fra il parametro `bins` e `binwidth`.
+
+- `bins` imposta il numero di barre
+- `binwidth` imposta la largezza delle barre stesse
+
+in questo caso i valori sono arrotondati al millimetro,  
+`binwidth = 0.1`:
+
+## A proposito di ISTOGRAMMI
+
+è molto pericoloso utilizzare un numero di classi diverso da quello originale.  
+In termini tecnici, se la variabile non è _veramente continua_ ma è già **_binned_**, cioè già riassunta in classi (che siano vere classi, come le classi di diametro, o che sia a causa di un arrotondamento) è fortemente sconsigliato il **_rebinning_**, cioè un secondo raggruppamento in classi più ampie.
+
+**Questa azione può generare più di un artefatto nei dati!**
+
+
+## `binwidth = 0.1`
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, 
+                   aes(x = Petal.Length),
+                   binwidth = 0.1)
+```
+
+## Un grafico decente
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, 
+                   aes(x = Petal.Length),
+                   binwidth = 0.1) +
+    theme_bw()
+```
+
+## Un bel grafico
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, 
+                   aes(x = Petal.Length),
+                   binwidth = 0.1, 
+                   fill = "purple", color = "black",
+                   alpha = 2/3) +
+    theme_bw()
+```
+
+## Un bel grafico corretto
+
+```{r, fig.height=2.5}
+ggplot() +
+    geom_histogram(data = iris, 
+                   aes(x = Petal.Length),
+                   binwidth = 0.1, 
+                   fill = "purple", color = "black", alpha = 2/3) +
+    labs(title = "Distribution of petal length in IRIS dataset", 
+         x = "Petal length [cm]", 
+         y = "Density") +
+    theme_bw()
+```
+
+
+
+## Un po' di magia
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, aes(x = Petal.Length, fill = Species),
+                   alpha = 2/3, binwidth = 0.1, color = "black") +
+    theme_bw()
+```
+
+
+## `geom_density()`
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, aes(x = Petal.Length, fill = Species),
+                 alpha = 2/3, color = "black") +
+    theme_bw()
+```
+
+
+
+O con le classiche barre affiancate (`position = "dodge"`)
+
+```{r, fig.height=3}
+ggplot() +
+    geom_histogram(data = iris, 
+                 aes(x = Petal.Length, fill = Species, color = Species),
+                 alpha = 2/3, binwidth = 0.1, 
+                 position = "dodge") + # <<<---
+    theme_bw()
+```
+
+# La media
+
+## La _media_ non vuol dire un accidente di niente:
+
+- Media aritmetica
+- Media quadratica
+- Media geometrica
+- Media armonica
+
+- Mediana
+- Moda
+
+Questi sono tutti **indicatori di tendenza centrale**
+
+
+## Media aritmetica
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, 
+                 aes(x = Petal.Length),
+                 fill = "purple", alpha = 2/3) +
+    geom_vline(xintercept = mean(iris$Petal.Length)) + # <<<---
+    theme_bw()
+```
+
+## Mediana
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, 
+                 aes(x = Petal.Length),
+                 fill = "purple", alpha = 2/3) +
+    geom_vline(xintercept = median(iris$Petal.Length)) + # <<<---
+    theme_bw()
+```
+
+
+## Moda
+
+In generale la moda fa schifo a tutti.
+
+## Un approccio serio al problema della media
+
+### **La media di Chisini**
+
+la media dipende dalle variabili e **dalla funzione a cui sono destinate**.
+
+In soldoni: il valore medio è quel valore che mi permetterebbe di ottenere lo stesso risultato se tutti i valori fossero uguali:
+
+Per una definizione rigorosa:  
+Chisini, O. "Sul concetto di media." Periodico di Matematiche 4, 106-116, 1929.
+
+---
+
+Se due alberi hanno due altezze diverse il risultato che io sto cercando di tenere fisso è la somma delle altezze, quindi: 
+
+$$h1 + h2 = H$$
+$$m + m = H$$
+$$2m = H$$
+$$2m = h1+h2$$
+$$m = \frac{h1+h2}{2}$$
+**MEDIA ARITMETICA**
+
+---
+
+Se due alberi hanno due raggi diversi il risultato che io sto cercando di tenere fisso è l'**area basimetrica**, quindi: 
+
+$$r^2 + s^2 = \frac{G}{\pi}$$
+$$m^2 + m^2 = \frac{G}{\pi}$$
+$$2m^2 = \frac{G}{\pi}$$
+$$2m^2 = r^2 + s^2 $$
+$$m = \sqrt{\frac{r^2 + s^2}{2}}$$
+**MEDIA QUADRATICA**
+
+
+## Il _diametro medio_ è il diametro dell'albero di area basimetrica media.
+
+La scelta della media da calcolare non è banale, spesso non c'è un'unica risposta giusta, un buon punto da cui iniziare può essere questa pagina di CrossValidated: [Which "mean" to use and when](https://stats.stackexchange.com/questions/23117/which-mean-to-use-and-when).
+
+
+
+---
+
+La media, come _indicatore di tendenza centrale_ spesso è sopravvalutato, in molti casi la mediana (insieme ai quartili e percentili) è più _stabile_, nel senso che è meno soggetta alla presenza di valori estremi che spesso sono generati da errori, o comunque sono poco precisi rispetto al loro peso.
+
+
+---
+
+```{r, echo=FALSE, fig.height=3}
+data <- data_frame(a = c(iris$Petal.Length, 5, 5), b = c(iris$Petal.Length, 40, 40))
+
+ggplot() +
+    geom_density(data = data, 
+                 aes(x = a),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(xintercept = mean(data$a)) +
+    labs(title = paste0("mean = ", mean(data$a))) +
+    theme_bw()
+
+ggplot() +
+    geom_density(data = data, 
+                 aes(x = b),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(xintercept = mean(data$b)) +
+    labs(title = paste0("mean = ", mean(data$b))) +
+    theme_bw()
+
+```
+
+---
+
+```{r, echo=FALSE, fig.height=3}
+data <- data_frame(a = c(iris$Petal.Length, 5, 5), b = c(iris$Petal.Length, 40, 40))
+
+ggplot() +
+    geom_density(data = data, 
+                 aes(x = a),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(xintercept = median(data$a)) +
+    labs(title = paste0("median = ", median(data$a))) +
+    theme_bw()
+
+ggplot() +
+    geom_density(data = data, 
+                 aes(x = b),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(xintercept = median(data$b)) +
+    labs(title = paste0("median = ", median(data$b))) +
+    theme_bw()
+
+```
+
+## QUANTILI (quartili e percentili)
+
+In generale si intende come **percentili**, i valori per cui una determinata percentuale della popolazione ha un valore minore:
+
+- 1° percentile : 1% dei valori (più bassi)
+- 25° percentile = 1° quartile : 25% dei valori
+- 50° percentile = 2° quartile = mediana : 50% dei valori
+
+La funzione `quantile()` fornisce di default i quartili
+
+```{r}
+quantile(iris$Petal.Length)
+```
+
+---
+
+se vogliamo il 5° percentile (5% = 0.05) basta indicarlo nell'argomento `probs`
+
+```{r}
+quantile(iris$Petal.Length, probs = 0.05)
+quantile(iris$Petal.Length, probs = 0:10/10)
+
+```
+
+---
+
+I quartili, come qualsiasi quantile posso essere facilmente graficati:
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, 
+                 aes(x = Petal.Length),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(xintercept = quantile(iris$Petal.Length)) + # <<<---
+    theme_bw()
+```
+
+---
+
+### Graficare i quantili
+
+se voglio sfruttare ggplot, devo fornire i dati in un `data_frame`:  
+in una colonna le etichette che andranno nella legenda  
+in un'altra i valori a cui andranno le linee
+
+vediamo com'è fatto l'oggetto restituito da `quantile()`
+
+```{r}
+quant_object <- quantile(iris$Petal.Length)
+
+str(quant_object)
+
+names(quant_object)
+
+```
+
+---
+
+Creare il `dataframe`
+
+```{r}
+quant_iris <- data_frame(quantile = names(quant_object), 
+                         position = quant_object)
+
+quant_iris
+```
+
+---
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, 
+                 aes(x = Petal.Length),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(data = quant_iris, 
+               aes(color = quantile, xintercept = position), # <<<---
+               size = 1.5) + 
+    theme_bw()
+```
+
+---
+
+Creare il `dataframe`, **imponendo l'ordine dei nomi**
+
+```{r}
+quant_iris <- data_frame(quantile = as_factor(names(quant_object), 
+                                              ordered = TRUE), 
+                         position = quant_object)
+
+quant_iris
+```
+
+---
+
+```{r, fig.height=3}
+ggplot() +
+    geom_density(data = iris, 
+                 aes(x = Petal.Length),
+                 fill = "purple", alpha = 2/3, adjust = 1/5) +
+    geom_vline(data = quant_iris, 
+               aes(color = quantile, xintercept = position), # <<<---
+               size = 1.5) + 
+    theme_bw()
+```
+
+
